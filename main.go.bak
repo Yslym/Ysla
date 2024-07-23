@@ -1,0 +1,8 @@
+package main
+
+import "github.com/Yscliking/ysla/socks5server"
+
+func main() {
+	var s *socks5server.Socks5server = socks5server.NewSocks5Server("0.0.0.0", 1081)
+	(*s).Run()
+}
