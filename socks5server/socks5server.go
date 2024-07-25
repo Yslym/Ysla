@@ -8,6 +8,12 @@ import (
 	"net"
 	"strconv"
 )
+import "C"
+//export SocksV
+func SocksV(ip *C.char,port C.int) error{
+	s := NewSocks5Server(C.GoString(ip),int(port))	
+	return s.Run()
+}
 
 // FirstMessage represents the initial message sent by SOCKS5 clients.
 type FirstMessage struct {
